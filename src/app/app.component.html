@@ -1,0 +1,29 @@
+<input type="text" [(ngModel)]="title">
+{{ title }}
+
+<div *ngIf="title == 'pepe'">
+  Esto es un div de pepe
+</div>
+
+<div [ngSwitch]="title">
+  <p *ngSwitchCase="'maria'">Esto es un div de maria</p>
+  <p *ngSwitchCase="'pedro'">Esto es un div de pedro</p>
+  <p *ngSwitchCase="'pilar'">Esto es un div de pilar</p>
+  <p *ngSwitchDefault>No se encontraron coincidencias</p>
+</div>
+
+
+<button (click)="addItem()">Agregar item</button>
+
+<ul>
+  <li *ngIf="items.length == 0">No se tienen nombres por el momento</li>
+  <li *ngFor="let name of items; index as i">
+    {{i+1}} {{name}} <button (click)="deleteItem(i)">Eliminar item</button>
+  </li>
+</ul>
+
+<div *ngFor="let product of products">
+  {{ product.title }}
+  <img [src]="product.image" [alt]="product.image">
+  {{ product.price }}
+</div>

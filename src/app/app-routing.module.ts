@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 import { ProductsComponent } from './products/products.component';
 import { ContactComponent } from './contact/contact.component';
 import { DemoComponent } from './demo/demo.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { LayoutComponent } from './layout/layout.component';
+
+import { AdminGuard } from './admin.guard';
 
 const routes: Routes = [
   {
@@ -20,7 +21,7 @@ const routes: Routes = [
       },
       {
         path : 'home',
-        component : HomeComponent,
+        loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
       },
       {
         path : 'products',
@@ -33,6 +34,9 @@ const routes: Routes = [
       {
         path : 'contact',
         component : ContactComponent,
+        canActivate: [
+          AdminGuard
+        ]
       }
       ,
       {
@@ -47,7 +51,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{
+    preloadingStrategy : PreloadAllModules
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

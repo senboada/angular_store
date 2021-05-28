@@ -19,7 +19,5 @@ const routes: Routes = [
     ]
 })
 
-export class HomeRoutingModule {
-
-}
+export class HomeRoutingModule {}
 

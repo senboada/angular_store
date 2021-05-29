@@ -14,6 +14,10 @@ import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
 
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+
 @NgModule({
   declarations: [],
   imports: [
@@ -29,7 +33,10 @@ import { MatMenuModule } from '@angular/material/menu';
     MatSidenavModule,
     MatListModule,
     MatGridListModule,
-    MatMenuModule
+    MatMenuModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   exports: [
     MatButtonModule,
@@ -43,7 +50,10 @@ import { MatMenuModule } from '@angular/material/menu';
     MatSidenavModule,
     MatListModule,
     MatGridListModule,
-    MatMenuModule
+    MatMenuModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
   ]
 })
 export class MaterialModule { }

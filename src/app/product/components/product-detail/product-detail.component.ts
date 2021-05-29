@@ -11,7 +11,7 @@ import { Product } from '../../../product.model';
 })
 
 export class ProductDetailComponent implements OnInit {
-  
+
   product!: Product;
 
   constructor(
@@ -21,12 +21,16 @@ export class ProductDetailComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.fetchProduct();
+  }
+
+  fetchProduct()
+  {
     this.route.params.subscribe((params: Params) => {
       const id = params.id;
-      this.product = this.productsService.getProduct(id);
-      if (this.product.id === ''){
-        this.router.navigate(['/page-no-found']);
-      }
+      this.productsService.getProduct(id).subscribe((res) => {
+        this.product = res;
+      });
     });
   }
 

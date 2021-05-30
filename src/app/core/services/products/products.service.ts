@@ -29,4 +29,16 @@ export class ProductsService {
     let resultado = this.http.post(`${environment.url_api}/products`,product);
     return resultado;
   }
+
+  updateProduct(id:string, changes: Partial<Product>)
+  {
+    let resultado = this.http.put(`${environment.url_api}/products/${id}`, changes);
+    return resultado;
+  }
+
+  deleteProduct(id:string)
+  {
+    let producto = this.http.delete(`${environment.url_api}/products/${id}`);
+    return producto;
+  }
 }

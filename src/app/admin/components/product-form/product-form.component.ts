@@ -95,6 +95,10 @@ export class ProductFormComponent {
   ) { }
 
   onSubmit(): void {
+    this.deleteProduct("6");
+  }
+
+  createProduct() {
     const newProduct: Product = {
       "id": "50",
       "image": "assets/images/camiseta.png",
@@ -103,6 +107,25 @@ export class ProductFormComponent {
       "description": "globopu.com"
     }
     this.productsService.createProduct(newProduct)
+      .subscribe(product => {
+        console.log(product);
+      });
+  }
+
+  updateProduct(id: string) {
+    const changeProduct: Partial<Product> = {
+      "title": "Actualización",
+      "price": 2500123,
+      "description": "globopu.com"
+    }
+    this.productsService.updateProduct(id, changeProduct)
+      .subscribe(product => {
+        console.log(product);
+      });
+  }
+
+  deleteProduct(id: string) {
+    this.productsService.deleteProduct(id)
       .subscribe(product => {
         console.log(product);
       });

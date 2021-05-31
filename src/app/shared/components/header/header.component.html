@@ -5,9 +5,11 @@
                 <a mat-button routerLink="/home" routerLinkActive="active">Home</a>
                 <a mat-button routerLink="/products" routerLinkActive="active">Products</a>
                 <a mat-button routerLink="/contact" routerLinkActive="active">Contact</a>
+                <a mat-button routerLink="/auth/login" routerLinkActive="active">Login</a>
                 <a mat-button routerLink="/admin" routerLinkActive="active">Administración</a>
             </nav>
-            <a mat-raised-button matBadge="4" matBadgeColor="accent">
+            
+            <a mat-raised-button [matBadge]="total$ | async" matBadgeColor="accent" routerLink="/order">
                 <mat-icon>shopping_cart</mat-icon>
                 Carrito
             </a>

@@ -20,24 +20,20 @@ const routes: Routes = [
       },
       {
         path: 'products',
-        loadChildren: () => import('./product/product.module').then(m => m.ProductModule),
-        canActivate: [
-          AdminGuard
-        ]
+        loadChildren: () => import('./product/product.module').then(m => m.ProductModule)
+        
       },
       {
         path: 'products/:id',
-        loadChildren: () => import('./product/product.module').then(m => m.ProductModule),
-        canActivate: [
-          AdminGuard
-        ]
+        loadChildren: () => import('./product/product.module').then(m => m.ProductModule)
       },
       {
         path: 'contact',
-        loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule),
-        canActivate: [
-          AdminGuard
-        ]
+        loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule)
+      },
+      {
+        path: 'order',
+        loadChildren: () => import('./order/order.module').then(m => m.OrderModule)
       }
       ,
       {
@@ -45,9 +41,17 @@ const routes: Routes = [
         loadChildren: () => import('./demo/demo.module').then(m => m.DemoModule),
       }
     ]
-  }, {
+  }, 
+  {
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
+  },
+  {
     path: 'admin',
-    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
+    canActivate: [
+      AdminGuard
+    ]
   }, {
     path: '**',
     loadChildren: () => import('./page-not-found/page-not-found.module').then(m => m.PageNotFoundModule),

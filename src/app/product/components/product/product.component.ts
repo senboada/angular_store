@@ -9,9 +9,9 @@ import {
     //DoCheck, 
     OnDestroy 
 } from '@angular/core';
-import { Product } from '../../../product.model';
+import { Product } from '@core/models/product.model';
 
-import { CartService } from '../../../core/services/cart/cart.service';
+import { CartService } from '@core/services/cart/cart.service';
 
 @Component({
     selector: 'app-product',

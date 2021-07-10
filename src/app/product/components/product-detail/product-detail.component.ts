@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
-import { ProductsService } from '../../../core/services/products/products.service';
-import { Product } from '../../../product.model';
+import { Observable } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 
+import { ProductsService } from '@core/services/products/products.service';
+import { Product } from '@core/models/product.model';
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
@@ -12,7 +14,7 @@ import { Product } from '../../../product.model';
 
 export class ProductDetailComponent implements OnInit {
 
-  product!: Product;
+  product$!: Observable<Product>;
 
   constructor(
     private route: ActivatedRoute,
@@ -26,12 +28,12 @@ export class ProductDetailComponent implements OnInit {
 
   fetchProduct()
   {
-    this.route.params.subscribe((params: Params) => {
-      const id = params.id;
-      this.productsService.getProduct(id).subscribe((res) => {
-        this.product = res;
-      });
-    });
+    this.product$ = this.route.params.pipe(
+      switchMap((params: Params) =>{
+        const id = params.id;
+        return this.productsService.getProduct(id)
+      })
+    )
   }
 
 }

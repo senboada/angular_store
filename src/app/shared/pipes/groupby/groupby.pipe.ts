@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Product } from '../../../product.model';
-import { ProductsOrder } from '../../../models/products-order';
+import { Product } from '@core/models/product.model';
+import { ProductsOrder } from '@core/models/products-order';
 
 @Pipe({
   name: 'groupby'

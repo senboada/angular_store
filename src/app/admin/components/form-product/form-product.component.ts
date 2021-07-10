@@ -3,9 +3,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import  { AngularFireStorage } from  '@angular/fire/storage';
 
-import { MyValidators } from '../../../utils/validators';
+import { MyValidators } from '@utils/validators';
 
-import { ProductsService } from '../../../core/services/products/products.service';
+import { ProductsService } from '@core/services/products/products.service';
 import { finalize } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 

@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
-import { ProductsService } from '../../../core/services/products/products.service';
-import { Product } from '../../../product.model';
+import { ProductsService } from '@core/services/products/products.service';
+import { Product } from '@core/models/product.model';
 @Component({
   selector: 'app-product-form',
   templateUrl: './product-form.component.html',

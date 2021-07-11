@@ -26,6 +26,7 @@
       "@material/*" : ["src/app/material/*"],
       "@shared/*" : ["src/app/shared/*"],
       "@admin/*" : ["src/app/admin/*"],
+      "@env/*" : ["src/environments/*"]
     }
   },
   "angularCompilerOptions": {

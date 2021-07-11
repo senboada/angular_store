@@ -9,4 +9,12 @@
         </ul>
         <p>{{ product.description }}</p>
     </div>
+    <div *ngIf="user">
+        <h3>Datos del responsable</h3>
+        <ul>
+            <li><img [src]="user.picture.thumbnail" alt=""></li>
+            <li>Nombre: {{user.name.title}} {{user.name.first}} {{user.name.last}}</li>
+            <li>Correo electronico: {{user.email}}</li>
+        </ul>
+    </div>
 </div>
